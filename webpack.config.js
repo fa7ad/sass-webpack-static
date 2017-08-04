@@ -14,18 +14,20 @@ module.exports = {
         test: /\.(scss|sass|css)$/,
         use: ExtractTextPlugin.extract({
           use: [
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true
-              }
-            },
-            { loader: 'resolve-url-loader' },
+            'css-loader',
+            'resolve-url-loader',
             {
               loader: 'sass-loader',
               options: {
-                sourceMap: true,
-                includePaths: [path.resolve(__dirname, 'src')]
+                includePaths: [
+                  path.resolve(__dirname, 'src'),
+                  path.resolve(
+                    __dirname,
+                    'node_modules',
+                    'foundation-sites',
+                    'scss'
+                  )
+                ]
               }
             }
           ],
@@ -48,7 +50,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin({
       filename: 'style.css',
-      disable: process.env.NODE_ENV !== 'production'
+      disable: process.env.NODE_ENV === 'development'
     })
   ],
   devServer: {
