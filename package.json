@@ -22,6 +22,6 @@
     "webpack-dev-server": "^3.1.11"
   },
   "dependencies": {
-    "foundation-sites": "^6.4.1"
+    "foundation-sites": "^6.4.3"
   }
 }
